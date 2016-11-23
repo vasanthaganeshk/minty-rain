@@ -1,0 +1,28 @@
+<html>
+  {% extends "base.html" %}
+  <head>
+    {% if problem.id %}
+    <title>#{{ problem.id }}</title>
+    {% else %}
+    <title>Problem</title>
+    {% endif %}
+  </head>
+  
+  {% block content %}
+
+    <h3>Problem {{ problem.id }}: {{ problem.pname }}</h3>
+    <p>{{ problem.statement }}</p>
+    <h3>Test cases</h3>
+    
+    {% for i in problem.blk %}
+    <div>
+      <h4>Test case #{{ i.id  }}:</h4>
+      <p>{{ i.tcase }}</p>
+      <h4>Sample output for #{{ i.id  }}</h4>
+      <p>{{ i.ssoln }}</p>
+    </div>
+    {% endfor %}
+
+  {% endblock %}
+
+</html>
