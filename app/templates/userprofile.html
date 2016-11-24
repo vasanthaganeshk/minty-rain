@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ profile.name }}</h1>
+<p>{{ profile.desc }}</p>
+
+<h3>Statistics</h3>
+<p>Number of problems attempted: {{ profile.attempted }}</p>
+<p>Number of problems solved: {{ profile.solved }}</p>
+
+{% endblock %}

@@ -9,7 +9,7 @@ def index():
                            title='Home',
                            user=user)
 
-@app.route('/p')
+@app.route('/p', methods=['GET', 'POST'])
 def prob():
     problem = {'id':101,
                'pname':'watermelons',
@@ -30,3 +30,14 @@ def login():
     return render_template('login.html',
                            title='Sign In',
                            form=form)
+
+@app.route('/u')
+def userprofile():
+    profile = {'name':'Vasantha Ganesh Kanniappan',
+               'desc': 'Lambda guru, Free Software Enthusiast and amateur competitive programmer',
+               'attempted': 250,
+               'solved': 205}
+    return render_template('userprofile.html',
+                           title = "About {}".format(profile['name']),
+                           profile=profile)
+    
