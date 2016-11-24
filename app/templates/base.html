@@ -1,10 +1,30 @@
 <html>
+  <head>
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>Minty-Rain-Online-Judge</title>
+  {% endif %}
+  </head>
+  
   <body>
-    {%block content%}{% endblock  %}
+    <div>Minty-Rain-Online-Judge <a href="/">Home</a></div>
     <hr>
-    <p>Created and maintained by Vasantha Ganesh K. {vasanthaganesh.k@tuta.io} </p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock  %}
+
     <hr>
-    <p>Runs with Python, Jinja2, flask and love!</p>
-    <hr>
+    <div id="footer">        
+      <p>&copy; 2016 by Vasantha Ganesh K. All rights reserved.<a href="mailto:vasanthaganesh.k@tuta.io"> &ltvasanthaganesh.k@tuta.io&gt</a></p>
+    </div>
+    
   </body>
 </html>
